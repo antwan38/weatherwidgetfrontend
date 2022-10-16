@@ -1,0 +1,10 @@
+
+<div>
+  {{widgets.name}}
+  {{temp}}
+  <form #widget = "ngForm" (ngSubmit)="getWidget(widget.value)">
+    <input type="text" placeholder="Location" name="name" ngModel>
+    <br>
+    <input type="submit" value="submit" >
+  </form>
+</div>

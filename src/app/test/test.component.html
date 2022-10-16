@@ -1,0 +1,19 @@
+
+<p>test works!</p>
+<div id="signInGoogle"></div>
+<div class="g-signin2" data-onsuccess="onsignIn" data-longtitle="true"></div>
+<div class="fb-login-button" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
+<p>there are {{amount}} tests</p>
+<ul>
+  <li *ngFor="let test of tests">
+    {{test.name}}
+  </li>
+</ul>
+<form #testpost = "ngForm" (ngSubmit)="uploadTest(testpost.value)">
+  <input type="text" name="name" placeholder="Test Name" ngModel>
+  <br>
+  <input type="submit" value="submit" >
+  <br>
+  <p>{{status.__zone_symbol__value}}</p>
+</form>
+
