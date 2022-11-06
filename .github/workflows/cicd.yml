@@ -19,10 +19,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        
+
 
       - name: Tests
-        run: npm run test:prod
+        run: ng test
 
       - name: Build
-        run: npm run build:prod
+        run: ng build
