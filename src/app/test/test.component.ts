@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TestService} from "./test.service";
-declare var google: any;
+declare let google: any;
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -11,7 +11,7 @@ export class TestComponent implements OnInit {
  tests: any;
  googleId: any = {id: 'no google id'};
  status: any = "";
- amount: number= 0;
+ amount= 0;
   private FB: any;
 
   constructor(private test: TestService) {
@@ -39,9 +39,9 @@ export class TestComponent implements OnInit {
 
   handleGoogleSignIn(response: any) {
     console.log(response.credential);
-    let base64Url = response.credential.split('.')[1];
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+    const base64Url = response.credential.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
     console.log(JSON.parse(jsonPayload));

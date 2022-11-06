@@ -22,7 +22,7 @@ export class TestService{
   postTest(name : string){
     console.log(name);
 
-    let options = {
+    const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'

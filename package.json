@@ -28,6 +28,8 @@
     "@angular/cli": "~14.2.4",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "eslint": "^8.27.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",

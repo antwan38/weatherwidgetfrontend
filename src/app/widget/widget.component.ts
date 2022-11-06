@@ -11,7 +11,7 @@ import * as Console from "console";
 export class WidgetComponent implements OnInit {
 
   widgets: any = {name: 'Location', main:{temp: '96'}};
-  temp: string ="90°C";//°F
+  temp ="90°C";//°F
 
 
   constructor(private widget: WidgetService) {
