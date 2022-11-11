@@ -11,6 +11,6 @@ export class WidgetService{
   constructor(private http: HttpClient) {
   }
   getWidget(location: string){
-    return this.http.get((this.url + "get/"+ location));
+    return this.http.get((this.url+ location));
   }
 }
