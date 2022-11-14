@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { WidgetComponent } from './widget/widget.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GridComponent } from './grid/grid.component';
+import { AddWidgetFormComponent } from './add-widget-form/add-widget-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GridComponent } from './grid/grid.component';
     TestComponent,
     WidgetComponent,
     NavbarComponent,
-    GridComponent
+    GridComponent,
+    AddWidgetFormComponent
   ],
   imports: [
     BrowserModule,

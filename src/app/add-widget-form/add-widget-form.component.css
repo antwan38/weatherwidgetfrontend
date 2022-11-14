@@ -1,0 +1,16 @@
+.widgetForm{
+  position: absolute;
+  margin: 0 auto;
+  top: 20%;
+  left: 30%;
+  height:200px;
+  background-color: darkgrey;
+  padding: 100px ;
+}
+input{
+  font-size: 20pt;
+}
+
+button{
+  font-size: 20pt;
+}
