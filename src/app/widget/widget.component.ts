@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WidgetService} from "./widget.service";
 import {NgForm} from "@angular/forms";
 import * as Console from "console";
@@ -10,6 +10,9 @@ import * as Console from "console";
 })
 export class WidgetComponent implements OnInit {
 
+  @Input()
+  location: string = "";
+
   widgets: any = {name: 'Location', main:{temp: '96'}};
   temp ="90°C";//°F
 
@@ -19,15 +22,13 @@ export class WidgetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.getWidget(this.location);
   }
 
 
 
-  getWidget(location: any): void{
-
-    console.log(location.name);
-    this.widget.getWidget(location.name).subscribe(data=>{
+  getWidget(location: string): void{
+    this.widget.getWidget(location).subscribe(data=>{
       this.widgets = data
       let tempt = this.widgets.main.temp;
       this.temp = (tempt -= 272.15).toFixed(2)+"°C";

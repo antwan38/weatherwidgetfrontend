@@ -12,6 +12,8 @@ import { WidgetComponent } from './widget/widget.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GridComponent } from './grid/grid.component';
 import { AddWidgetFormComponent } from './add-widget-form/add-widget-form.component';
+import {GridService} from "./grid/grid.service";
+import {WidgetGridService} from "./add-widget-form/add-widget-form.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { AddWidgetFormComponent } from './add-widget-form/add-widget-form.compon
     HttpClientModule,
     FormsModule
   ],
-  providers: [TestService, WidgetService],
+  providers: [GridService, WidgetService, WidgetGridService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

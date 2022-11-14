@@ -1,11 +1,7 @@
 <div class="grid-container">
-  <div class="grid-item" style="grid-column: 1; grid-row: 1"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 2; grid-row: 2"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 3; grid-row: 3"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 5; grid-row: 4"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 4; grid-row: 5"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 3; grid-row: 5"><app-widget></app-widget></div>
-  <div class="grid-item" style="grid-column: 5; grid-row: 5"><app-widget></app-widget></div>
+  <div *ngFor="let gridItem of grids" class="grid-item" [ngStyle]="{'grid-column': gridItem.wColumn, 'grid-row' : gridItem.wRow}">
+    <app-widget location="{{gridItem.location}}"></app-widget>
+  </div>
 </div>
 
 

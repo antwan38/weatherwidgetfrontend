@@ -13,7 +13,7 @@ type widget ={
 export class WidgetGridService{
   url = "http://localhost:8080/widget/";
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 
   async postWidget(data : widget){
