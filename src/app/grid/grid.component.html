@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div *ngFor="let gridItem of grids" class="grid-item" [ngStyle]="{'grid-column': gridItem.wColumn, 'grid-row' : gridItem.wRow}">
-    <app-widget location="{{gridItem.location}}"></app-widget>
+    <app-widget wId="{{gridItem.id}}" location="{{gridItem.location}}"></app-widget>
   </div>
 </div>
 

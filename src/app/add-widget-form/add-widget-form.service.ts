@@ -22,8 +22,6 @@ export class WidgetGridService{
     const response = await fetch(this.url, {
       method: 'POST',
       body: JSON.stringify({
-        title: 'This will be the title',
-        body: 'Setting the body property',
         column : data.column,
         row : data.row,
         location : data.location
@@ -33,10 +31,8 @@ export class WidgetGridService{
         'Content-type': 'application/json; charset=UTF-8'
       },
     })
+    return await response.json() ;
 
-    const dat = await response.json();
-    console.log(data);
-    console.log(dat);
 
   }
 

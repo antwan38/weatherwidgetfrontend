@@ -12,6 +12,8 @@ export class WidgetComponent implements OnInit {
 
   @Input()
   location: string = "";
+  @Input()
+  wId: string="";
 
   widgets: any = {name: 'Location', main:{temp: '96'}};
   temp ="90°C";//°F
@@ -25,19 +27,22 @@ export class WidgetComponent implements OnInit {
     this.getWidget(this.location);
   }
 
+  deleteWidget(id : string){
+    this.widget.deleteWidget(id).then((data) =>{
 
+    });
+  }
 
   getWidget(location: string): void{
-    this.widget.getWidget(location).subscribe(data=>{
-      this.widgets = data
-      let tempt = this.widgets.main.temp;
-      this.temp = (tempt -= 272.15).toFixed(2)+"°C";
-
-
-      });
-
-
-
-
+   this.widget.getWidget(location).then((data) =>{
+    this.widgets = data;
+    let tempt = this.widgets.main.temp;
+    this.temp = (tempt -= 272.15).toFixed(2)+"°C";
+   })
   }
+
+
+
+
+
 }

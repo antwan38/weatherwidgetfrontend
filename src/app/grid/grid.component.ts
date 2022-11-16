@@ -8,7 +8,7 @@ import {GridService} from "./grid.service";
 })
 export class GridComponent implements OnInit {
 
-  public grids : any = {wRow: 0, wColumn: 0 , location: "tilburg"}
+  public grids : any = {wRow: 0, wColumn: 0 , location: "tilburg", id: 0}
   constructor(private service : GridService) { }
 
   ngOnInit(): void {
