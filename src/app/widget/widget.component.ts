@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {WidgetService} from "./widget.service";
 import {NgForm} from "@angular/forms";
 import * as Console from "console";
+import {Router} from "@angular/router";
+import {GridService} from "../grid/grid.service";
+import {GridComponent} from "../grid/grid.component";
 
 @Component({
   selector: 'app-widget',
@@ -19,7 +22,7 @@ export class WidgetComponent implements OnInit {
   temp ="90°C";//°F
 
 
-  constructor(private widget: WidgetService) {
+  constructor(private widget: WidgetService, private router: Router, private grid : GridComponent) {
 
   }
 
@@ -29,8 +32,8 @@ export class WidgetComponent implements OnInit {
 
   deleteWidget(id : string){
     this.widget.deleteWidget(id).then((data) =>{
-
     });
+    this.grid.ngOnInit();
   }
 
   getWidget(location: string): void{

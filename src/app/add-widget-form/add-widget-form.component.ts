@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetService} from "../widget/widget.service";
 import {WidgetGridService} from "./add-widget-form.service";
+import {Router} from "@angular/router";
 
 type widget ={
   column : number;
@@ -15,7 +16,7 @@ type widget ={
 })
 export class AddWidgetFormComponent implements OnInit {
 
-  constructor(private widget: WidgetGridService) { }
+  constructor(private widget: WidgetGridService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,13 @@ export class AddWidgetFormComponent implements OnInit {
   }
 
   postGrid(data : widget) :void{
-    this.widget.postWidget(data)
+    try {
+      this.widget.postWidget(data);
+      this.router.navigate(["/home"]);
+    }catch (e){
+      console.log(e)
+    }
+
   }
 
 }
