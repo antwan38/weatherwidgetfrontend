@@ -32,8 +32,8 @@ export class WidgetComponent implements OnInit {
 
   deleteWidget(id : string){
     this.widget.deleteWidget(id).then((data) =>{
+      this.grid.ngOnInit();
     });
-    this.grid.ngOnInit();
   }
 
   getWidget(location: string): void{

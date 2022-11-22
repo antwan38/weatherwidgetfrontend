@@ -31,7 +31,7 @@ export class WidgetGridService{
         'Content-type': 'application/json; charset=UTF-8'
       },
     })
-    return await response.json() ;
+    //return await response.json() ;
 
 
   }

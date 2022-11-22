@@ -26,8 +26,9 @@ export class AddWidgetFormComponent implements OnInit {
 
   postGrid(data : widget) :void{
     try {
-      this.widget.postWidget(data);
-      this.router.navigate(["/home"]);
+      this.widget.postWidget(data).then((data) =>{
+        this.router.navigate(["/home"]);
+      });
     }catch (e){
       console.log(e)
     }
