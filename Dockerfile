@@ -1,9 +1,8 @@
-FROM node:12.7-alpine AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install
+FROM node:alpine AS my-app-build
+WORKDIR /app
 COPY . .
-RUN npm run build
+RUN npm ci && npm run build
 
-FROM nginx:1.17.1-alpine
-COPY --from=build /usr/src/app/dist/out-tsc /usr/share/nginx/html
+FROM nginx:alpine
+COPY --from=my-app-build /app/dist/out-tsc /usr/share/nginx/html
+EXPOSE 4200
