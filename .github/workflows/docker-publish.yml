@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: antwangamen/weatherwidget:${{ env.RELEASE_VERSION }}
+          tags: antwangamen/weatherwidgetfrontend:${{ env.RELEASE_VERSION }}
