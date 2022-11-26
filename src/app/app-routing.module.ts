@@ -7,7 +7,8 @@ import {GridComponent} from "./grid/grid.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'addWidgetForm', component: AddWidgetFormComponent },
+  { path: 'addWidgetForm/:id', component: AddWidgetFormComponent},
+  { path: 'addWidgetForm', component: AddWidgetFormComponent},
   { path: 'home', component: GridComponent},
   { path: 'nav', component: NavbarComponent}
 ];

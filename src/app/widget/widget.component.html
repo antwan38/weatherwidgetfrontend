@@ -1,7 +1,8 @@
 
 <div class="widget">
 
-  <button type="button" (click)="deleteWidget(wId)">Delete</button>
+  <button class="delete" type="button" (click)="deleteWidget(wId)">Delete</button>
+  <button class="edit" type="button" (click)="editWidget()">Edit</button>
 
   {{widgets.name}}
   <br>

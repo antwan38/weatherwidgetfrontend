@@ -2,8 +2,8 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 
 type widget ={
-  column : number;
-  row: number;
+  column : string;
+  row: string;
   location: string;
 }
 
@@ -16,7 +16,28 @@ export class WidgetGridService{
   constructor() {
   }
 
-  async postWidget(data : widget){
+  async editWidget(data: widget, id: string){
+
+
+    const response = await fetch(this.url, {
+      method: 'PUT',
+      body: JSON.stringify({
+        column : data.column,
+        row : data.row,
+        location : data.location,
+        id: id
+
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+    })
+    //return await response.json() ;
+
+
+  }
+
+  async postWidget(data: widget){
 
 
     const response = await fetch(this.url, {

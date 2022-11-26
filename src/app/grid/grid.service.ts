@@ -13,4 +13,8 @@ export class GridService{
   getGrid(){
     return this.http.get((this.url));
   }
+
+  getGridItem(id: string | null){
+    return this.http.get((this.url + id));
+  }
 }

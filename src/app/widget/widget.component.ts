@@ -5,6 +5,7 @@ import * as Console from "console";
 import {Router} from "@angular/router";
 import {GridService} from "../grid/grid.service";
 import {GridComponent} from "../grid/grid.component";
+import {AddWidgetFormComponent} from "../add-widget-form/add-widget-form.component";
 
 @Component({
   selector: 'app-widget',
@@ -14,7 +15,7 @@ import {GridComponent} from "../grid/grid.component";
 export class WidgetComponent implements OnInit {
 
   @Input()
-  location: string = "";
+  wLocation: string = "";
   @Input()
   wId: string="";
 
@@ -27,13 +28,18 @@ export class WidgetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getWidget(this.location);
+    this.getWidget(this.wLocation);
   }
 
   deleteWidget(id : string){
     this.widget.deleteWidget(id).then((data) =>{
       this.grid.ngOnInit();
     });
+  }
+
+  editWidget(){
+    this.router.navigate(["/addWidgetForm", this.wId]);
+
   }
 
   getWidget(location: string): void{
