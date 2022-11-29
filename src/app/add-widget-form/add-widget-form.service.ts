@@ -11,7 +11,7 @@ type widget ={
   providedIn: 'root'
 })
 export class WidgetGridService{
-  url = "http://localhost:8080/widget/";
+  url = "http://localhost:8080/grid/";
 
   constructor() {
   }

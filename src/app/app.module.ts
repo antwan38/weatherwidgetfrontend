@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import {TestService} from "./test/test.service";
 import {WidgetService} from "./widget/widget.service";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
@@ -18,7 +16,6 @@ import {WidgetGridService} from "./add-widget-form/add-widget-form.service";
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     WidgetComponent,
     NavbarComponent,
     GridComponent,
