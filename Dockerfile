@@ -12,7 +12,7 @@ RUN npm install
 COPY ./ ./
 
 # Now build it (Docker supplies a `sh -c` wrapper for you)
-RUN npm run build
+RUN npm run tsc -p .
 
 # Runtime metadata as above
 ENV PORT=8080
