@@ -2,7 +2,7 @@ FROM node:11-slim
 WORKDIR /usr/src/app
 
 # Also copy the lock file
-COPY ./package.json ./package.lock .
+COPY ./package.json ./package-lock.json .
 
 # typescript is a devDependencies, no need to separately install it
 RUN npm install
