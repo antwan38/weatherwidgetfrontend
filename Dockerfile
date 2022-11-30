@@ -1,20 +1,19 @@
-FROM node:11-slim
+FROM node:18.8.0-alpine
 WORKDIR /usr/src/app
 
-# Also copy the lock file
+
 COPY ./package.json ./package-lock.json .
 
-# typescript is a devDependencies, no need to separately install it
+t
 RUN npm install
 
-# Copy the rest of your application in
-# (include `node_modules` in a `.dockerignore` file)
+
 COPY ./ ./
 
-# Now build it (Docker supplies a `sh -c` wrapper for you)
-RUN npm run tsc -p .
 
-# Runtime metadata as above
+RUN npm run build
+
+
 ENV PORT=8080
 EXPOSE 8080
 USER node
