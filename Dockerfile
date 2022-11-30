@@ -1,20 +1,10 @@
-FROM node:18.8.0-alpine
+FROM node:18.8.0-alpine AS build
 WORKDIR /usr/src/app
-
-
-COPY ./package.json ./package-lock.json .
-
-
+COPY package.json package-lock.json ./
 RUN npm install
-
-
-COPY ./ ./
-
-
+COPY . .
 RUN npm run build
-
-
-# ENV PORT=8080
-# EXPOSE 8080
-# USER node
-CMD ["npm", "start"]
+### STAGE 2: Run ###
+FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist/weatherwidgetfrontend /usr/share/nginx/html
