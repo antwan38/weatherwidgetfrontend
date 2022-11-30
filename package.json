@@ -8,8 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "tsc": "tsc",
-    "postinstall": "postinstall"
+    "tsc": "tsc"
   },
   "private": true,
   "dependencies": {
