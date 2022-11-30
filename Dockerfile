@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY ./package.json ./package-lock.json .
 
-t
+
 RUN npm install
 
 
