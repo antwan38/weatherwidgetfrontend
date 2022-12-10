@@ -13,7 +13,7 @@ export class GridComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.getGrid().subscribe(data =>{
+    this.service.getGrid().then(data =>{
       this.grids = data;
     });
 

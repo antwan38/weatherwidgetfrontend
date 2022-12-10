@@ -10,11 +10,25 @@ export class GridService{
   url = "http://localhost:8080/grid/";
   constructor(private http: HttpClient) {
   }
-  getGrid(){
-    return this.http.get((this.url));
+  async getGrid() {
+    const response = await fetch(this.url, {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+    return response.json();
   }
 
-  getGridItem(id: string | null){
-    return this.http.get((this.url + id));
+  async getGridItem(id: string | null) {
+    const response = await fetch(this.url + "info/?" + new URLSearchParams({
+      id: "" + id,
+    }), {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+    return response.json();
   }
 }

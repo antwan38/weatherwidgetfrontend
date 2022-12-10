@@ -11,7 +11,9 @@ export class WidgetService{
   }
   async getWidget(location: string) {
 
-    const response = await fetch(this.url + "widget/" + location, {
+    const response = await fetch(this.url + "widget/?" + new URLSearchParams({
+      location: "" + location,
+    }), {
       method: 'GET',
     })
 

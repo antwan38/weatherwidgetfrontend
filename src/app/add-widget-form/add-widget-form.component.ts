@@ -24,7 +24,7 @@ export class AddWidgetFormComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id !==  null) {
-      this.grid.getGridItem(this.id).subscribe(data => {
+      this.grid.getGridItem(this.id).then(data => {
         this.formData = data;
       });
     }
