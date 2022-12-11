@@ -13,6 +13,7 @@ import { AddWidgetFormComponent } from './add-widget-form/add-widget-form.compon
 import {GridService} from "./grid/grid.service";
 import {WidgetGridService} from "./add-widget-form/add-widget-form.service";
 import { SigninComponent } from './signin/signin.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SigninComponent } from './signin/signin.component';
     NavbarComponent,
     GridComponent,
     AddWidgetFormComponent,
-    SigninComponent
+    SigninComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
