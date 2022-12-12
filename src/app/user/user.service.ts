@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  url = "http://localhost:8080/user/";
+  url = "http://localhost:8080/client/";
   constructor() { }
 
   async postUserInfo( user : any) {

@@ -44,7 +44,7 @@ export class WidgetGridService{
         column : data.column,
         row : data.row,
         location : data.location,
-        userId : this.user.id
+        clientId : this.user.id
 
       }),
       headers: {
