@@ -11,7 +11,7 @@ type widget ={
 })
 export class WidgetGridService{
   url = "http://localhost:8080/grid/";
-
+  private user : any = {name: "", email: "", id: ""}
   constructor() {
   }
 
@@ -37,14 +37,14 @@ export class WidgetGridService{
   }
 
   async postWidget(data: widget){
-
-
+    this.user = JSON.parse(sessionStorage.getItem("user") || "{}");
     const response = await fetch(this.url, {
       method: 'POST',
       body: JSON.stringify({
         column : data.column,
         row : data.row,
-        location : data.location
+        location : data.location,
+        userId : this.user.id
 
       }),
       headers: {

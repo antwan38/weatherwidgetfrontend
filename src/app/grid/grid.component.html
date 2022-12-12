@@ -1,7 +1,8 @@
-<div class="grid-container">
+<div *ngIf="userIsSignedIn" class="grid-container">
   <div *ngFor="let gridItem of grids" class="grid-item" [ngStyle]="{'grid-column': gridItem.wColumn, 'grid-row' : gridItem.wRow}">
     <app-widget wId="{{gridItem.id}}" wLocation="{{gridItem.location}}"></app-widget>
   </div>
 </div>
+<app-home-info-page *ngIf="!userIsSignedIn"></app-home-info-page>
 
 

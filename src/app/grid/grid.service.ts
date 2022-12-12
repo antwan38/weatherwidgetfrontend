@@ -10,8 +10,12 @@ export class GridService{
   url = "http://localhost:8080/grid/";
   constructor(private http: HttpClient) {
   }
+  private user : any = {name: "", email: "", id: ""}
   async getGrid() {
-    const response = await fetch(this.url, {
+    this.user = JSON.parse(sessionStorage.getItem("user") || "{}");
+    const response = await fetch(this.url + "?" + new URLSearchParams({
+      id: "" + this.user.id,
+    }), {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8'

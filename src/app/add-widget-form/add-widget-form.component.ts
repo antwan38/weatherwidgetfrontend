@@ -18,15 +18,21 @@ type widget ={
 export class AddWidgetFormComponent implements OnInit {
   private id : string | null = "";
   public formData : any = {location: "", wColumn: null, wRow: null}
+  public userIsSignedIn : boolean = false;
 
   constructor(private grid: GridService, private widget: WidgetGridService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id !==  null) {
-      this.grid.getGridItem(this.id).then(data => {
-        this.formData = data;
-      });
+    if(sessionStorage.getItem("user") !== null && sessionStorage.getItem("user") !== undefined) {
+      this.userIsSignedIn = true;
+      this.id = this.route.snapshot.paramMap.get('id');
+      if (this.id !==  null) {
+        this.grid.getGridItem(this.id).then(data => {
+          this.formData = data;
+        });
+      }
+    }else {
+      this.userIsSignedIn = false;
     }
   }
 

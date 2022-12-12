@@ -1,4 +1,4 @@
-<div class="widgetForm">
+<div *ngIf="userIsSignedIn" class="widgetForm">
   <form #addWidget = "ngForm" (ngSubmit)="postGrid(addWidget.value)">
     <h2>Add widget</h2>
     <div class="mb-3"><input class="form-control" type="text" value="{{formData.location}}" name="location" placeholder="Location" ngModel /></div>
@@ -7,4 +7,5 @@
     <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
   </form>
 </div>
+<app-add-info-page *ngIf="!userIsSignedIn"></app-add-info-page>
 
