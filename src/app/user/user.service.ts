@@ -11,8 +11,7 @@ export class UserService {
     const response = await fetch(this.url, {
       method: 'POST',
       body: JSON.stringify({
-        name: user.name,
-        email: user.email,
+        accessToken: user.access_token
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
