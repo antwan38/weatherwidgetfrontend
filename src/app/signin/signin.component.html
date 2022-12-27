@@ -1,7 +1,7 @@
 <div class="signin">
   <div *ngIf="!signedIn">
     <h2>Social sign in</h2>
-    <a href="{{facebookUrl.url}}" class="fa fa-facebook"></a>
+    <a id="f" href="{{facebookUrl.url}}" class="fa fa-facebook"></a>
   </div>
   <div *ngIf="signedIn">
     <app-user></app-user>

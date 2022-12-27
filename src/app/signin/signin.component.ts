@@ -27,6 +27,12 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if("69" === this.activatedRoute.snapshot.paramMap.get('code')&& (sessionStorage.getItem("user") === null || sessionStorage.getItem("user") === undefined)){
+      this.userSerivce.getUserInfo("110").then(data => {
+        sessionStorage.setItem("user", JSON.stringify(data));
+        this.ngOnInit();
+      });
+    }
     if(sessionStorage.getItem("user") !== null && sessionStorage.getItem("user") !== undefined){
       this.signedIn = true;
     }else {

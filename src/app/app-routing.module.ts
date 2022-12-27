@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'addWidgetForm', component: AddWidgetFormComponent},
   { path: 'signin', component: SigninComponent},
   { path: 'home', component: GridComponent},
+  { path: 'signin/:code', component: SigninComponent},
   { path: 'nav', component: NavbarComponent}
 ];
 

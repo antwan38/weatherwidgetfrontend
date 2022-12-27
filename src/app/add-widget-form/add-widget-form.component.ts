@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {WidgetService} from "../widget/widget.service";
 import {WidgetGridService} from "./add-widget-form.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -19,8 +19,10 @@ export class AddWidgetFormComponent implements OnInit {
   private id : string | null = "";
   public formData : any = {location: "", wColumn: null, wRow: null}
   public userIsSignedIn : boolean = false;
-
-  constructor(private grid: GridService, private widget: WidgetGridService, private route: ActivatedRoute, private router: Router) { }
+  @Inject('ActivatedRoute') private route: ActivatedRoute
+  constructor(private grid: GridService, private widget: WidgetGridService, route: ActivatedRoute, private router: Router) {
+    this.route = route;
+  }
 
   ngOnInit(): void {
     if(sessionStorage.getItem("user") !== null && sessionStorage.getItem("user") !== undefined) {
