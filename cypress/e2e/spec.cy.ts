@@ -2,7 +2,7 @@
 // import Chance from 'chance';
 // const chance = new Chance();
 
-describe('My First Test', () => {
+describe('e2e tests', () => {
   // const place = chance.name();
   // const column = chance.number({ min: 1, max: 10 });
   // const row = chance.number({ min: 1, max: 10 });
