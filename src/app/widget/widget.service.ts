@@ -15,6 +15,7 @@ export class WidgetService{
       location: "" + location,
     }), {
       method: 'GET',
+      keepalive: false,
     })
 
     return await response.json() ;
@@ -24,6 +25,7 @@ export class WidgetService{
   async deleteWidget(id: string) {
     const response = await fetch(this.url + "grid/", {
       method: 'DELETE',
+      keepalive: false,
       body: JSON.stringify({
         id: id
       }),

@@ -1,11 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WidgetService} from "./widget.service";
-import {NgForm} from "@angular/forms";
-import * as Console from "console";
 import {Router} from "@angular/router";
-import {GridService} from "../grid/grid.service";
 import {GridComponent} from "../grid/grid.component";
-import {AddWidgetFormComponent} from "../add-widget-form/add-widget-form.component";
+import {WebsocketService} from "../websocket/websocket.service";
 
 @Component({
   selector: 'app-widget',
@@ -18,17 +15,28 @@ export class WidgetComponent implements OnInit {
   wLocation: string = "";
   @Input()
   wId: string="";
+  socketService : WebsocketService;
+  socket : WebSocket | undefined;
 
   widgets: any = {name: 'Location', main:{temp: '96'}};
   temp ="90°C";//°F
+  test = "";
 
 
-  constructor(private widget: WidgetService, private router: Router, private grid : GridComponent) {
-
+  constructor(private widget: WidgetService, private router: Router, private grid : GridComponent, private webSocket : WebsocketService) {
+    this.socketService = webSocket;
   }
+
+
 
   ngOnInit(): void {
     this.getWidget(this.wLocation);
+    this.socket = this.socketService.getSocket();
+    this.socket.addEventListener('message', (event) => {
+      if(this.wLocation === JSON.parse(event.data).location){
+        this.updateWidget(JSON.parse(event.data));
+      }
+    });
   }
 
   deleteWidget(id : string){
@@ -45,13 +53,14 @@ export class WidgetComponent implements OnInit {
   getWidget(location: string): void{
    this.widget.getWidget(location).then((data) =>{
     this.widgets = data;
-    let tempt = this.widgets.main.temp;
-    this.temp = (tempt -= 272.15).toFixed(2)+"°C";
+    this.temp = (this.widgets.main.temp -= 272.15).toFixed(2)+"°C";
    })
   }
 
-
-
-
+  updateWidget(data : any){
+    this.widgets.name = data.location;
+    this.temp = (data.temp -= 272.15).toFixed(2)+"°C";
+    console.log("update widget ", this.widgets);
+  }
 
 }
