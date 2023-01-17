@@ -1,9 +1,10 @@
 <div *ngIf="userIsSignedIn" class="widgetForm">
+  <p>*note, the row and column variables are there to determine the location of the widget.</p>
   <form #addWidget = "ngForm" (ngSubmit)="postGrid(addWidget.value)">
     <h2>Add widget</h2>
-    <div class="mb-3"><input id="place" class="form-control" type="text" value="{{formData.location}}" name="location" placeholder="Location" ngModel /></div>
-    <div class="mb-3"><input id="column" class="form-control" type="number" value="{{formData.wColumn}}" name="column" placeholder="Column" ngModel /></div>
-    <div class="mb-3"><input id="row" class="form-control" type="number" value="{{formData.wRow}}" name="row" placeholder="Row" ngModel /></div>
+    <div style="inline-size: max-content" class="mb-3"><label>Location         </label><input id="place" class="form-control" type="text" value="{{formData.location}}" name="location" placeholder="Location" ngModel /></div>
+    <div style="inline-size: max-content" class="mb-3"><label>Column              </label><input id="column" class="form-control" type="number" value="{{formData.wColumn}}" name="column" placeholder="Column" ngModel /></div>
+    <div style="inline-size: max-content" class="mb-3"><label>Row             </label><input id="row" class="form-control" type="number" value="{{formData.wRow}}" name="row" placeholder="Row" ngModel /></div>
     <div class="mb-3"><button class="btn btn-primary" type="submit">send</button></div>
   </form>
 </div>
